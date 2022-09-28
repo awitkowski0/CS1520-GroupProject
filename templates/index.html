@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CS1520 | Home</title>
-    <link href="/static/style.css" rel="stylesheet" type="text/css" />
-  </head>
+{% extends '_base.html' %}
 
-  <body class="body">
-    <h1>Test site...</h1>
-  </body>
-</html>
+<!-- News feed content will be on the main page -->
+{% block content %}
+<div class="newsfeed">
+    <!-- For loop logic of jinja template -->
+    {%for post in news_feed%}
+    <h1>{{post.display}} - {{post.date}}</h1>
+
+    <p>{{post.body}}</p>
+    {%endfor%}
+</div>
+{% endblock %}

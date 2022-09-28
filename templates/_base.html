@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{site_name}} | {{page_title}}</title>
+    <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- Top navigation menu -->
+    <div class="nav">
+        <a href="/">
+            <img src="/static/university_of_pittsburgh_shield.png" class="icon" alt="University of Pittsburgh">
+        </a>
+        <a href="/marketplace">Marketplace</a>
+        <a href="/posts">My Posts</a>
+        <a href="/user" class="split">Account</a>
+    </div>
+    <!-- All these pitt sites have a little gold stripe here? -->
+    <div class="stripe">
+        <br />
+    </div>
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+</body>
