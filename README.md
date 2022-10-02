@@ -1,4 +1,4 @@
-# CS1520-Group-Project
+# CS1520-GroupProject
 
 ## Website is live @ https://cs1520-363917.ue.r.appspot.com
 
