@@ -1,5 +1,51 @@
+/* Set base Text & Background*/
 body {
-    font-family: 'Courier New', monospace;
+    font-family: 'helvetica', sans-serif;
     font-display: fallback;
+    background-color: rgba(0, 53, 148);
+}
+
+.nav {
+    background-color: rgba(0, 53, 148);
+    overflow: hidden;
+}
+
+/* Navigation buttons */
+.nav a {
+    background-color: rgba(0, 53, 148);
+    color: #f6f2ea;
+    float: left;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 20px;
+}
+/* CSS for the logo in the navigation */
+.nav img {
+    width: 120px;
+    background-color: rgba(0, 53, 148);
+    float: left;
+    padding: 16px 32px;
+}
+
+/* Change the href based on if the user is hovering */
+.nav a:hover, a.split:hover {
+    background-color: rgba(133, 149, 179, 0.866);
+    color: #f6f2ea;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.nav a.split {
+    float: right;
+    color: #f6f2ea;
+}
+
+
+.stripe {
+    /* Create a gold stripe... why not? */
+    background-color: rgb(255, 184, 28);
+}
+
+.newsfeed {
+    /* Off-white for readability, sourced color codes from pitt.edu site */
     background-color: #f6f2ea;
 }
