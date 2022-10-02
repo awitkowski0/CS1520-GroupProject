@@ -2,7 +2,7 @@
 
 ## Website is live @ https://cs1520-363917.ue.r.appspot.com
 
-# CS 1520 Project Proposal
+# CS 1520 Project Proposal 
 ## Group Members
 
 ### Crystal Li, Jennifer Zheng, Lindsey Rojtas, Alex Witkowski
@@ -33,7 +33,7 @@ There won’t be too much functionality for these features (that’ll come in mi
 
 ## Milestone 2
 By milestone 2, we’ll have mastered the art of the HTML form and user authentication set up where users will be able to log in and out of their account. 
-We will be able to store and retrieve user account data (privately to the user at first) –  which could include their name, Pitt email, phone number, major, year, etc. 
+We will be able to store and retrieve user account data (privately to the user at first) –  which could include their name, pitt email, phone number, major, year, etc. 
 
 Sellers may also add availability times to their profiles or listings for the sake of communicating drop off/pick up times that would work for them 
 
