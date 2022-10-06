@@ -57,13 +57,11 @@ body {
 }
 
 .left-col {
-    /* background-color: palegreen; */
     width: 33%;
     margin: 10px;
 }
 
 .right-col {
-    /* background-color: pink; */
     width: 67%;
     margin: 20px;
     height: 75vh;
@@ -81,10 +79,9 @@ body {
     margin-top: 25px;
     margin-bottom: 25px;
 
-    /* Center */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    /* Centers profile pic */
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .profile-pic img {
