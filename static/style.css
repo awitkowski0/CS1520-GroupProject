@@ -89,11 +89,12 @@ body {
     height: 100%;
     position: absolute;
     border-radius: 50%;
-    object-fit: cover; /* maintains image ratio */
+    
+    /* maintains image ratio */
+    object-fit: cover; 
 }
 
 .menu div {
-    /* height: 50px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,6 +123,10 @@ body {
     color: #f6f2ea;
     width: 25%;
     border-radius: 12px;
+}
+
+.logout button:hover {
+    width: 28%
 }
 
 .right-col .newsfeed {
