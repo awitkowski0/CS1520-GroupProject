@@ -2,5 +2,37 @@
 
 <!-- News feed content will be on the main page -->
 {% block content %}
-Newsfeed stuff will go here...
+<section class="profile">
+    <div class="left-col">
+        <div class="profile-pic">
+            <img src="/static/assets/guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg" alt="profile picture">
+        </div>
+        <div class="menu">
+            <div class="default">
+                <button>My Posts</button>
+            </div>
+            <div class="">
+                <button>Account Details</button>
+            </div>
+            <div class="">
+                <button>Settings</button>
+            </div>
+            <div class="logout">
+                <button>Log Out</button> 
+            </div>
+        </div>
+    </div>
+
+    <div class="right-col">
+        <div class="newsfeed">
+            <!-- For loop logic of jinja template -->
+            {%for post in news_feed%}
+            <h1>{{post.display}} - {{post.date}}</h1>
+        
+            <p>{{post.body}}</p>
+            {%endfor%}
+        </div>
+    </div>
+</section>
+
 {% endblock %}
