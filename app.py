@@ -55,7 +55,7 @@ def root():
 @app.route('/user')
 @app.route('/user.html')
 def user():
-    return render_template('user.html', site_name=APP_NAME, page_title='Account')
+    return render_template('user.html', site_name=APP_NAME, page_title='Account', news_feed=posts)
 
 
 if __name__ == '__main__':
