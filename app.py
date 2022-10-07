@@ -9,6 +9,8 @@ app = Flask(__name__)
 APP_NAME = "CS1520 Project"
 
 # Post obj, may need to move out of app.py
+
+
 class Post:
     def __init__(self, display, username, date, description, image, profile, profile_image):
         self.display = display
@@ -32,7 +34,22 @@ class User:
 
 # Temporary list of posts
 posts = {
-    Post('display', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a', 'image', 'profile', 'john_martins.jpeg')
+    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
+         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
+    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
+         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
+    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
+         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
+    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
+         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
+    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
+         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
+    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
+         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
+    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
+         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
+    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
+         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg')
 }
 
 
