@@ -8,6 +8,8 @@ body {
 .nav {
     background-color: rgba(0, 53, 148);
     overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
 }
 
 /* Navigation buttons */
@@ -48,6 +50,9 @@ body {
 .newsfeed {
     /* Off-white for readability, sourced color codes from pitt.edu site */
     background-color: #f6f2ea;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 }
 
 /* Profile Page */
@@ -132,4 +137,49 @@ body {
 .right-col .newsfeed {
     overflow-y: auto;
     height: 100%;
+}
+
+.newsfeed button {
+    padding: 10px;
+    width: 75%;
+    font-size: 1.5v;
+    background-color: rgba(0, 53, 148);;
+    border-radius: 10px;
+    color: #f6f2ea
+}
+
+.newsfeed button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.content-1 {
+    grid-column: span 1;
+}
+.content-2 {
+    grid-column: span 2;
+}
+.content-3 {
+    grid-column: span 3;
+}
+.content-4 {
+    grid-column: span 4;
+}
+.content-5 {
+    grid-column: span 5;
+}
+.content-6 {
+    grid-column: span 5;
+}
+.content-7 {
+    grid-column: span 7;
+}
+.content-8 {
+    grid-column: span 8;
+}
+
+.container {
+    background-color: #a9a8a7;
+    border-color: #7a7978;
+    border-radius: 10px;
 }

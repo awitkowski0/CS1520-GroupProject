@@ -3,11 +3,38 @@
 <!-- News feed content will be on the main page -->
 {% block content %}
 <div class="newsfeed">
-    <!-- For loop logic of jinja template -->
-    {%for post in news_feed%}
-    <h1>{{post.display}} - {{post.date}}</h1>
+    <div class="content-8"></div>
+    <div class="content-2">
+        <button class="split">New Post</button>
+    </div>
+    <div class="content-2"></div>
+</div>
+<div class="newsfeed">
+    <div class="content-2"></div>
+    <div class="content-8">
+        <!-- For loop logic of jinja? template -->
 
-    <p>{{post.body}}</p>
-    {%endfor%}
+        {%for post in news_feed%}
+        <div class="container">
+            <a href="/{{post.username}}}}">
+                <div class="profile-pic">
+                    <img src="/static/assets/{{post.profile}}" alt="profile picture" alt={{post.display}}>
+                </div>
+            </a>
+            <h1 class="title">{{post.display}}</h1>
+            <h2 class="date">{{post.date}}</h2>
+            <p class="description">{{post.description}}</p>
+            <img src="/static/{{post.image}}" class="post">
+            <br />
+            <img src="/static/{{post.profile_image}}" class="icon-2">
+            <form>
+                <label for="comment">Add a comment...</label>
+                <input type="text" id="comment">
+            </form>
+        </div>
+        {%endfor%}
+    </div>
+    <div class="content-2"></div>
+
 </div>
 {% endblock %}

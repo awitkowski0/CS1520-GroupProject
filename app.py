@@ -9,13 +9,15 @@ app = Flask(__name__)
 APP_NAME = "CS1520 Project"
 
 # Post obj, may need to move out of app.py
-
-
 class Post:
-    def __init__(self, name, date, body):
-        self.display = name
+    def __init__(self, display, username, date, description, image, profile, profile_image):
+        self.display = display
+        self.username = username
         self.date = date
-        self.body = body
+        self.description = description
+        self.image = image
+        self.profile_image = profile_image
+        self.profile = profile
 
 # Base User obj
 
@@ -30,17 +32,7 @@ class User:
 
 # Temporary list of posts
 posts = {
-    Post("Test Item", "01/01/2000", "Test body..."),
-    Post("Test 4214", "01/01/2411", "Test body 2..."),
-    Post("Test 241", "01/01/2141", "Test body 3..."),
-    Post("Test 5125", "01/01/2141", "Test body 4..."),
-    Post("Test 1234", "01/01/2241", "Test body 5..."),
-    Post("Test 4211", "01/01/2141", "Test body 6..."),
-    Post("Test 4219", "01/01/2141", "Test body 7..."),
-    Post("Test 4219", "01/01/2141", "Test body 7..."),
-    Post("Test 4219", "01/01/2141", "Test body 7..."),
-    Post("Test 4219", "01/01/2141", "Test body 7..."),
-    Post("Test 4219", "01/01/2141", "Test body 7...")
+    Post('display', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a', 'image', 'profile', 'john_martins.jpeg')
 }
 
 
