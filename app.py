@@ -6,7 +6,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 # App name
-APP_NAME = "CS1520 Project"
+APP_NAME = "Roc's Marketplace"
 
 # Post obj, may need to move out of app.py
 
@@ -22,6 +22,7 @@ class Post:
         self.profile = profile
 
 # Base User obj
+# Eventually user's will be loaded in through the DB?
 
 
 class User:
@@ -32,7 +33,8 @@ class User:
         self.date = creation_date
 
 
-# Temporary list of posts
+# Temporary list of posts, this will eventually be fed through using the DB for recent posts
+# We'll provide a specific ammount based on how many posts the user wants to see
 posts = {
     Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
          'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
@@ -66,15 +68,18 @@ def root():
 def user():
     return render_template('user.html', site_name=APP_NAME, page_title='Account', news_feed=posts)
 
+
 @app.route('/signup')
 @app.route('/signup.html')
 def signup():
-     return render_template('signup.html', site_name=APP_NAME, page_title='Sign Up', news_feed=posts)
+    return render_template('signup.html', site_name=APP_NAME, page_title='Sign Up', news_feed=posts)
+
 
 @app.route('/login')
 @app.route('/login.html')
 def login():
-     return render_template('login.html', site_name=APP_NAME, page_title='Log In', news_feed=posts)
+    return render_template('login.html', site_name=APP_NAME, page_title='Log In', news_feed=posts)
+
 
 if __name__ == '__main__':
     server_port = os.environ.get('PORT', '8080')

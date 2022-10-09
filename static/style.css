@@ -2,9 +2,10 @@
 body {
     font-family: 'helvetica', sans-serif;
     font-display: fallback;
-    background-color: rgba(0, 53, 148);
+    background-color: #003594;
 }
 
+/* Top nav bar*/
 .nav {
     background-color: rgba(0, 53, 148);
     overflow: hidden;
@@ -41,12 +42,13 @@ body {
     color: #f6f2ea;
 }
 
-
+/* Funny little gold stripe*/
 .stripe {
     /* Create a gold stripe... why not? */
-    background-color: rgb(255, 184, 28);
+    background-color: #ffb81c;
 }
 
+/* The newsfeed background, just offsets color*/
 .newsfeed {
     /* Off-white for readability, sourced color codes from pitt.edu site */
     background-color: #f6f2ea;
@@ -237,4 +239,15 @@ body {
 .container_signin {
     background-color: #f6f2ea;
     text-align: center;
+}
+
+/* Searchbar */
+.searchbar input{
+    width: 90%;
+    height: 90%;
+    float: left;
+    border: 0px solid #ccc;
+    font-size: 20px;
+    padding: 8px 8px;
+    background-color: transparent;
 }
