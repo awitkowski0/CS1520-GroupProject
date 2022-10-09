@@ -25,13 +25,58 @@
 
     <div class="right-col">
         <div class="profile_newsfeed">
-            <!-- For loop logic of jinja template -->
-            {%for post in news_feed%}
-            <h1>{{post.display}} - {{post.date}}</h1>
-        
-            <p>{{post.body}}</p>
-            <br><br>
-            {%endfor%}
+
+            <div class="content-2"></div>
+                <div class="content-8">
+
+                    {%for post in news_feed%}
+                    {% if user.username == post.username %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="content-2">
+                                <a href="/{{post.username}}}}">
+                                    <div class="profile-pic">
+                                        <img src="/static/assets/{{post.profile}}" alt={{post.display}}>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-6">
+                                <h1 class="title">{{post.display}}</h1>
+                                <h2 class="date">{{post.date}}</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="content-8">
+                                <p class="description">{{post.description}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="content-8">
+                                <div class="post-image">
+                                    <img src="/static/assets/{{post.image}}" class="post-image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="content-1">
+                                <div class="profile-pic">
+                                    <img src="/static/assets/{{post.profile_image}}" class="profile-pic">
+                                </div>
+                            </div>
+                            <div class="content-7">
+                                <div class="comment">
+                                    <form>
+                                        <input type="text" id="comment" placeholder="Add a comment...">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {%endfor%}
+
+                <!-- need a no posts statement if user has not made any posts yet -->
+
         </div>
     </div>
 </section>

@@ -28,7 +28,8 @@ class Post:
 class User:
     posts = {}
 
-    def __init__(self, name, creation_date):
+    def __init__(self, username, name, creation_date):
+        self.username = username
         self.name = name
         self.date = creation_date
 
@@ -42,6 +43,8 @@ posts = {
          'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
     Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
          'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
+    Post('Jane Doe', 'Jane Doe', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
+         'book.jpg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
     Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
          'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
     Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
@@ -53,6 +56,9 @@ posts = {
     Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
          'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg')
 }
+
+# temporary user
+temp_user = User('Jane Doe', 'Jane Doe', 'Tue, Oct 4')
 
 
 @app.route('/')
@@ -66,7 +72,7 @@ def root():
 @app.route('/user')
 @app.route('/user.html')
 def user():
-    return render_template('user.html', site_name=APP_NAME, page_title='Account', news_feed=posts)
+    return render_template('user.html', site_name=APP_NAME, page_title='Account', news_feed=posts, user=temp_user)
 
 
 @app.route('/signup')
