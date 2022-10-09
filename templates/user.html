@@ -24,12 +24,13 @@
     </div>
 
     <div class="right-col">
-        <div class="newsfeed">
+        <div class="profile_newsfeed">
             <!-- For loop logic of jinja template -->
             {%for post in news_feed%}
             <h1>{{post.display}} - {{post.date}}</h1>
         
             <p>{{post.body}}</p>
+            <br><br>
             {%endfor%}
         </div>
     </div>

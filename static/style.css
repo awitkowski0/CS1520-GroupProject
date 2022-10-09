@@ -134,10 +134,12 @@ body {
     width: 28%
 }
 
-.right-col .newsfeed {
+.right-col .profile_newsfeed {
     overflow-y: auto;
     height: 100%;
 }
+
+/* End of Profile Page CSS */
 
 .newsfeed button {
     padding: 10px;
