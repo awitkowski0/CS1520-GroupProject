@@ -66,6 +66,15 @@ def root():
 def user():
     return render_template('user.html', site_name=APP_NAME, page_title='Account', news_feed=posts)
 
+@app.route('/signup')
+@app.route('/signup.html')
+def signup():
+     return render_template('signup.html', site_name=APP_NAME, page_title='Sign Up', news_feed=posts)
+
+@app.route('/login')
+@app.route('/login.html')
+def login():
+     return render_template('login.html', site_name=APP_NAME, page_title='Log In', news_feed=posts)
 
 if __name__ == '__main__':
     server_port = os.environ.get('PORT', '8080')

@@ -200,3 +200,39 @@ body {
     text-decoration: none;
     font-size: 20px;
 }
+
+
+/* Sign up page */
+.signup {
+    background-color: #f6f2ea;
+    text-align: center;
+}
+
+.signup_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_login {
+    background-color: #f6f2ea;
+    text-align: center;
+}
+
+
+/* Login page */
+.login {
+    background-color: #f6f2ea;
+    text-align: center;
+}
+
+.login_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_signin {
+    background-color: #f6f2ea;
+    text-align: center;
+}
