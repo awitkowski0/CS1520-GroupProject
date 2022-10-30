@@ -8,23 +8,23 @@
             <img src="/static/assets/guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg" alt="profile picture">
         </div>
         <div class="menu">
-            <div class="default">
-                <button>My Posts</button>
+            <div>
+                <button id="my_posts_button" onclick="manageMenu('my_posts')">My Posts</button>
             </div>
             <div class="">
-                <button>Account Details</button>
+                <button id="account_details_button" onclick="manageMenu('account_details')">Account Details</button>
             </div>
             <div class="">
-                <button>Settings</button>
+                <button id="settings_button" onclick="manageMenu('settings')">Settings</button>
             </div>
-            <div class="logout">
-                <button>Log Out</button> 
+            <div>
+                <button id="logout_button" onclick="window.location.href='/login'">Log Out</button> 
             </div>
         </div>
     </div>
 
     <div class="right-col">
-        <div class="profile_newsfeed">
+        <div id="my_posts">
 
             <div class="content-2"></div>
                 <div class="content-8">
@@ -78,6 +78,15 @@
                 <!-- need a no posts statement if user has not made any posts yet -->
 
         </div>
+    </div>
+
+    <div id="account_details">
+        <h1 id="acc_details_name">{{ user.name }}</h1>
+        <p> Student at Pitt</p>
+    </div>
+
+    <div id="settings">
+        <h3>Settings</h3>
     </div>
 </section>
 
