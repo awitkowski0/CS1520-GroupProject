@@ -2,6 +2,8 @@ import os
 
 from flask import Flask, render_template
 
+from store import get_client, test_client
+
 # pylint: disable=C0103
 app = Flask(__name__)
 
@@ -66,7 +68,7 @@ temp_user = User('Jane Doe', 'Jane Doe', 'Tue, Oct 4')
 @app.route('/index')
 def root():
     # use render_template to convert the template code to HTML.
-    return render_template('index.html', site_name=APP_NAME, page_title='Home', news_feed=posts)
+    return render_template('index.html', site_name=APP_NAME, page_title=test_client(), news_feed=posts)
 
 
 @app.route('/user')
