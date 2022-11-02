@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template
 
-from store import get_client, test_client
+from store import PostManager
 
 # pylint: disable=C0103
 app = Flask(__name__)
@@ -10,57 +10,9 @@ app = Flask(__name__)
 # App name
 APP_NAME = "Roc's Marketplace"
 
-# Post obj, may need to move out of app.py
-
-
-class Post:
-    def __init__(self, display, username, date, description, image, profile, profile_image):
-        self.display = display
-        self.username = username
-        self.date = date
-        self.description = description
-        self.image = image
-        self.profile_image = profile_image
-        self.profile = profile
-
-# Base User obj
-# Eventually user's will be loaded in through the DB?
-
-
-class User:
-    posts = {}
-
-    def __init__(self, username, name, creation_date):
-        self.username = username
-        self.name = name
-        self.date = creation_date
-
-
-# Temporary list of posts, this will eventually be fed through using the DB for recent posts
-# We'll provide a specific ammount based on how many posts the user wants to see
-posts = {
-    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
-         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
-    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
-         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
-    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
-         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
-    Post('Jane Doe', 'Jane Doe', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
-         'book.jpg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
-    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
-         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
-    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
-         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
-    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
-         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
-    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
-         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg'),
-    Post('John Martins', 'John Martins', 'Tue, Oct 4', 'Lorem ipsum.e..fe.af.a',
-         'book.jpg', 'john_martins.jpeg', 'guillaume-bolduc-SGzbP-t1vlg-unsplash.jpg')
-}
-
-# temporary user
-temp_user = User('Jane Doe', 'Jane Doe', 'Tue, Oct 4')
+post_manager = PostManager()
+post_manager.create_post('Test', 'Test2', 'Test3', 'Test4', 'Test5', 'Test6', 'Test7')
+posts = post_manager.get_all_posts()
 
 
 @app.route('/')
@@ -68,13 +20,13 @@ temp_user = User('Jane Doe', 'Jane Doe', 'Tue, Oct 4')
 @app.route('/index')
 def root():
     # use render_template to convert the template code to HTML.
-    return render_template('index.html', site_name=APP_NAME, page_title=test_client(), news_feed=posts)
+    return render_template('index.html', site_name=APP_NAME, page_title='Main', news_feed=posts)
 
 
 @app.route('/user')
 @app.route('/user.html')
 def user():
-    return render_template('user.html', site_name=APP_NAME, page_title='Account', news_feed=posts, user=temp_user)
+    return render_template('user.html', site_name=APP_NAME, page_title='Account', news_feed=posts, user=None)
 
 
 @app.route('/signup')
