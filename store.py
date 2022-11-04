@@ -1,4 +1,5 @@
 import datetime
+import random
 from google.cloud import datastore
 
 # get_client
@@ -6,6 +7,9 @@ from google.cloud import datastore
 
 def get_client():
     return datastore.Client()
+
+def generate_id():
+    return random.randint(1,1000000000)
 
 
 # Post obj, may need to move out of app.py
@@ -70,10 +74,10 @@ class PostManager:
         self.client = get_client()
 
     def create_post(self, username, display, description, image, profile, profile_url, comments):
-        post_id = self.client.key('post')
+        post_id = self.client.key('post', generate_id())
 
         post_entity = datastore.Entity(post_id)
-        post_entity['post_id'] = post_id
+        post_entity['post_id'] = post_entity.key
         post_entity['username'] = username
         post_entity['display'] = display
         post_entity['description'] = description
