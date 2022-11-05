@@ -11,7 +11,7 @@ app = Flask(__name__)
 APP_NAME = "Roc's Marketplace"
 
 post_manager = PostManager()
-post_manager.create_post('Test', 'Test2', 'Test3', 'Test4', 'Test5', 'Test6', 'Test7')
+# post_manager.create_post('Test', 'Test2', 'Test3', 'Test4', 'Test5', 'Test6', 'Test7')
 posts = post_manager.get_all_posts()
 
 
