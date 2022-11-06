@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+
+<!-- new post -->
+{% block content %}
+
+<div class="createpost">
+    <section>
+        <h2>Log in here!</h2>
+    </section>
+
+    <section class="createpost_form">
+        <form>
+            <section>
+                <h3>Paste a URL of a picture of your item: </h3>
+                <input type="url" required>
+            </section>
+
+            <section>
+                <h3>Add a description!</h3>
+                <textarea rows='6' cols='40'></textarea>
+            </section>
+            <br>
+            <input type="submit" value="Post">
+        </form>
+    </section>
+</div>
+
+{% endblock %}
