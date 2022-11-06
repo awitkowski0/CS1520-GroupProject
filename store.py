@@ -1,9 +1,7 @@
 import datetime
 import random
 from google.cloud import datastore
-
-# get_client
-
+# from google.cloud import storage
 
 def get_client():
     return datastore.Client()
@@ -14,7 +12,8 @@ def generate_id():
 
 # Post obj, may need to move out of app.py
 
-
+# Could maybe be simplified into author_username and current_username
+# Then, we could just look in datastore for the necessary user information based on username
 class Post:
     def __init__(self, post_id, username, display, description, image, profile, profile_image, comments, date=None):
         self.post_id = post_id
@@ -74,10 +73,11 @@ class PostManager:
         self.client = get_client()
 
     def create_post(self, username, display, description, image, profile, profile_url, comments):
-        post_id = self.client.key('post', generate_id())
+        id = generate_id()
+        post_id = self.client.key('post', id)
 
         post_entity = datastore.Entity(post_id)
-        post_entity['post_id'] = post_entity.key
+        post_entity['post_id'] = id
         post_entity['username'] = username
         post_entity['display'] = display
         post_entity['description'] = description
@@ -88,7 +88,16 @@ class PostManager:
         post_entity['date'] = datetime.datetime.now().strftime(
             '%Y%m%d %H:%M:%S')
 
-        self.client.put(post_entity)
+        self.update_post(post_entity)
+
+    # needs to be separate from create_post() for edit mode
+    def update_post(self, entity):
+        self.client.put(entity)
+    
+    def retrieve_post(self, id):
+        key = self.client.key('post', int(id))
+        return self.client.get(key)
+
 
     def get_all_posts(self) -> list:
         posts = []
@@ -108,3 +117,15 @@ class PostManager:
             posts.append(Post(post_id, username, display, description,
                          image, profile, profile_url, comments, date))
         return posts
+
+    # def clear_all_posts(self):
+    #     query = self.client.query(kind='post')
+    #     for entity in query.fetch():
+    #         self.client.delete(entity.key)
+
+    # def save_file(self, _BUCKET_NAME, uploaded_file, c_type):
+    #     gcs_client = storage.Client()
+    #     storage_bucket = gcs_client.get_bucket(_BUCKET_NAME)
+    #     blob = self.storage_bucket.blob(uploaded_file.filename)
+    #     blob.upload_from_string(uploaded_file.read(), content_type=c_type)
+    #     return blob.public_url

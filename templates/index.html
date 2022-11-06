@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="content-2">
-        <button class="split">New Post</button>
+        <button class="split" onclick="location.href='/create'">New Post</button>
     </div>
     <div class="content-2"></div>
 </div>
@@ -31,9 +31,18 @@
                         </div>
                     </a>
                 </div>
-                <div class="content-6">
+                <div class="content-5">
                     <h1 class="title">{{post.display}}</h1>
                     <h2 class="date">{{post.date}}</h2>
+                </div>
+                <div class="content-1 edit">
+                    <!-- Once done checking functionality, uncomment if and endif statement -->
+                    <!-- Also add condition to if statement so that edit only appears if logged in -->
+                    <!-- {% if user.username == post.username %} -->
+                    <a href="/edit?id={{post.post_id}}">
+                        <img src="../static/assets/pencil-icon.png" alt="edit">
+                    </a>
+                    <!-- {% endif %} -->
                 </div>
             </div>
             <div class="row">
@@ -44,6 +53,7 @@
             <div class="row">
                 <div class="content-8">
                     <div class="post-image">
+                        <!-- What about multiple images?? -->
                         <img src="/static/assets/{{post.image}}" class="post-image">
                     </div>
                 </div>

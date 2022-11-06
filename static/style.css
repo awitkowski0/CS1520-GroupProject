@@ -165,3 +165,17 @@ body {
     padding: 8px 8px;
     background-color: transparent;
 }
+
+/* Edit Icon */ 
+.edit img {
+    width: 75%;
+}
+
+.content-1.edit {
+    padding: 20px;
+}
+
+/* Create/Edit Post */
+.editpost {
+    background-color: #f6f2ea;
+}
