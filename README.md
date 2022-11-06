@@ -1,6 +1,6 @@
 # CS1520-GroupProject
 
-## Website is live @ https://cs1520-363917.ue.r.appspot.com
+## Website is live @ https://rocsmarketplace.ue.r.appspot.com/
 
 # CS 1520 Project Proposal 
 ## Group Members

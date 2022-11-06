@@ -98,6 +98,10 @@ class PostManager:
         key = self.client.key('post', int(id))
         return self.client.get(key)
 
+    def delete_post(self, id):
+        key = self.client.key('post', int(id))
+        self.client.delete(key)
+
 
     def get_all_posts(self) -> list:
         posts = []
