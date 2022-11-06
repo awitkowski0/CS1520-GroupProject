@@ -34,22 +34,22 @@ def root():
 # def create():
 #     return render_template('post.html', site_name=APP_NAME, page_title='Create Post', post=blank_post)
 
-@app.route('/edit')
-def edit():
-    id = Flask.request.values['id']
-    entity = post_manager.retrieve_post(id)
-    p = Post(
-            entity['post_id'], 
-            entity['username'], 
-            entity['display'],
-            entity['description'], 
-            entity['image'], 
-            entity['profile'], 
-            entity['profile_url'], 
-            entity['comments'], 
-            entity['date']
-        )
-    return render_template('post.html', site_name=APP_NAME, page_title='Edit Post', post=p)
+# @app.route('/edit')
+# def edit():
+#     id = Flask.request.values['id']
+#     entity = post_manager.retrieve_post(id)
+#     p = Post(
+#             entity['post_id'], 
+#             entity['username'], 
+#             entity['display'],
+#             entity['description'], 
+#             entity['image'], 
+#             entity['profile'], 
+#             entity['profile_url'], 
+#             entity['comments'], 
+#             entity['date']
+#         )
+#     return render_template('post.html', site_name=APP_NAME, page_title='Edit Post', post=p)
 
 
 @app.route('/update')
@@ -111,6 +111,25 @@ def login():
 @app.route('/createpost.html')
 def createpost():
     return render_template('createpost.html', site_name=APP_NAME, page_title="Create Post")
+
+@app.route('/editpost')
+@app.route('/editpost.html')
+def editpost():
+    id = Flask.request.values['id']
+    entity = post_manager.retrieve_post(id)
+    p = Post(
+            entity['post_id'], 
+            entity['username'], 
+            entity['display'],
+            entity['description'], 
+            entity['image'], 
+            entity['profile'], 
+            entity['profile_url'], 
+            entity['comments'], 
+            entity['date']
+        )
+    return render_template('editpost.html', site_name=APP_NAME, page_title='Edit Post', post=p)
+
 
 
 if __name__ == '__main__':
