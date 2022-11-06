@@ -27,7 +27,7 @@
         <div id="my_posts">
 
             <div class="content-2"></div>
-                <div class="content-8">
+                <div class="content-8" id="content-8">
 
                     {%for post in news_feed%}
                     {% if user.username == post.username %}
@@ -74,8 +74,6 @@
                     </div>
                     {% endif %}
                     {%endfor%}
-
-                <!-- need a no posts statement if user has not made any posts yet -->
 
         </div>
     </div>

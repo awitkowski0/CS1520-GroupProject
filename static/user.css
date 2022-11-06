@@ -91,6 +91,10 @@
     height: 100%;
 }
 
+.no_posts {
+    text-align: center;
+}
+
 #account_details {
     display: none;
     text-align: center;
