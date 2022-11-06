@@ -51,6 +51,7 @@ def edit():
         )
     return render_template('post.html', site_name=APP_NAME, page_title='Edit Post', post=p)
 
+
 @app.route('/update')
 def update():
     mode = Flask.request.values['mode']
@@ -82,6 +83,13 @@ def update():
         post_manager.update_post(entity)
 
     return root()
+
+@app.route('/delete')
+def delete():
+    id = Flask.request.values['id']
+    entity = post_manager.delete_post(id)
+
+
 
 
 @app.route('/user')
