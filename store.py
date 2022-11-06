@@ -122,10 +122,10 @@ class PostManager:
                          image, profile, profile_url, comments, date))
         return posts
 
-    # def clear_all_posts(self):
-    #     query = self.client.query(kind='post')
-    #     for entity in query.fetch():
-    #         self.client.delete(entity.key)
+    def clear_all_posts(self):
+        query = self.client.query(kind='post')
+        for entity in query.fetch():
+            self.client.delete(entity.key)
 
     # def save_file(self, _BUCKET_NAME, uploaded_file, c_type):
     #     gcs_client = storage.Client()

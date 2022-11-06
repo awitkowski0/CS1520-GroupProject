@@ -30,9 +30,9 @@ def root():
     posts = post_manager.get_all_posts()
     return render_template('index.html', site_name=APP_NAME, page_title='Main', news_feed=posts, user=current_user)
 
-@app.route('/create')
-def create():
-    return render_template('post.html', site_name=APP_NAME, page_title='Create Post', post=blank_post)
+# @app.route('/create')
+# def create():
+#     return render_template('post.html', site_name=APP_NAME, page_title='Create Post', post=blank_post)
 
 @app.route('/edit')
 def edit():
@@ -113,7 +113,7 @@ def login():
 @app.route('/createpost')
 @app.route('/createpost.html')
 def createpost():
-     return render_template('createpost.html', site_name=APP_NAME, page_title="Create Post", news_feed=posts)
+    return render_template('createpost.html', site_name=APP_NAME, page_title="Create Post")
 
 
 if __name__ == '__main__':
