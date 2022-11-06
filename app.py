@@ -88,6 +88,11 @@ def signup():
 def login():
     return render_template('login.html', site_name=APP_NAME, page_title='Log In', news_feed=posts)
 
+@app.route('/createpost')
+@app.route('/createpost.html')
+def createpost():
+     return render_template('createpost.html', site_name=APP_NAME, page_title="Create Post", news_feed=posts)
+
 
 if __name__ == '__main__':
     server_port = os.environ.get('PORT', '8080')
