@@ -57,18 +57,16 @@ def update():
     mode = Flask.request.values['mode']
     title = Flask.request.values['title']
     description = Flask.request.values['description']
+    image = Flask.request.values['file']
 
-    # File uplaod code --- need to create GCS bucket first
+    # ---------- File uplaod code --- need to create GCS bucket first --------
     # file = Flask.request.files.get('file')
     # content_type = file.content_type
     # image = post_manager.save_file(_BUCKET_NAME, file, content_type)
 
     if mode == 'create':
         # if you create a post, the profile image and the image next to the comment are the same
-        post_manager.create_post(current_user.name, title, description, 'image', current_user.photo_url, current_user.photo_url, [])
-
-        # once save image is working, use the below instead
-        # post_manager.create_post(current_user.name, title, description, image, current_user.photo_url, current_user.photo_url, [])
+        post_manager.create_post(current_user.name, title, description, image, current_user.photo_url, current_user.photo_url, [])
 
     # mode == "edit"
     else:
@@ -76,8 +74,7 @@ def update():
         entity = post_manager.retrieve_post(id)
         entity['display'] = title
         entity['description'] = description
-        # uncomment below once save image is working
-        # entity['image'] = image
+        entity['image'] = image
         entity['date'] = datetime.datetime.now().strftime(
             '%Y%m%d %H:%M:%S')
         post_manager.update_post(entity)
