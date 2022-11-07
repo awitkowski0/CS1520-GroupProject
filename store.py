@@ -28,7 +28,7 @@ class Post:
         if date:
             self.date = date
         else:
-            self.date = datetime.datatime.now()
+            self.date = datetime.datetime.now()
 
 # Base User obj
 # Eventually user's will be loaded in through the DB?
@@ -43,7 +43,7 @@ class User:
         if date:
             self.date = date
         else:
-            self.date = datetime.datatime.now()
+            self.date = datetime.datetime.now()
 
 
 class Comment:
@@ -57,7 +57,7 @@ class Comment:
         if date:
             self.date = date
         else:
-            self.date = datetime.datatime.now()
+            self.date = datetime.datetime.now()
 
 
 class UserManager:
