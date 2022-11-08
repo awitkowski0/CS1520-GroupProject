@@ -108,7 +108,10 @@ body {
 }
 
 .post-image img {
-    width: 100%;
+    display: block;
+    width: 80%;
+    margin-left: auto; 
+    margin-right: auto;
 }
 
 .comment {
@@ -119,6 +122,9 @@ body {
     font-size: 20px;
 }
 
+.description {
+    margin-left:20px;
+}
 
 /* Sign up page */
 .signup {
@@ -160,7 +166,7 @@ body {
     width: 90%;
     height: 90%;
     float: left;
-    border: 0px solid #ccc;
+    border: 3px solid #ccc;
     font-size: 20px;
     padding: 8px 8px;
     background-color: transparent;
@@ -173,11 +179,12 @@ body {
 
 /* Edit Icon */ 
 .edit img {
-    width: 75%;
+    width: 25%;
+    float: right; 
 }
 
 .content-1.edit {
-    padding: 20px;
+    padding: 10px;
 }
 
 /* Edit Post */
@@ -187,9 +194,10 @@ body {
 
 /* Delete Icon */ 
 .content-1.delete {
-    padding: 20px;
+    padding: 10px;
 }
 
 .delete img {
-    width: 75%;
+    width: 25%;
+    float: right; 
 }
