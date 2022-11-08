@@ -10,7 +10,6 @@ app = Flask(__name__)
 
 # App name
 APP_NAME = "Roc's Marketplace"
-# _BUCKET_NAME = 'rocsmarketplace-image-uploads'
 
 # Test current user
 # Update this variable with the current user when login is successful
