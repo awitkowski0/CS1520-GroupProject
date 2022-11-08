@@ -1,7 +1,7 @@
 import os
 import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from store import PostManager, Post, User
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # App name
 APP_NAME = "Roc's Marketplace"
-_BUCKET_NAME = 'rocsmarketplace-image-uploads'
+# _BUCKET_NAME = 'rocsmarketplace-image-uploads'
 
 # Test current user
 # Update this variable with the current user when login is successful
@@ -19,7 +19,7 @@ current_user = User('abc123', 'John Martins', 'john_martins.jpeg')
 post_manager = PostManager()
 # post_manager.clear_all_posts()
 # post_manager.create_post('Test', 'Test2', 'Test3', 'Test4', 'Test5', 'Test6', 'Test7')
-blank_post = Post("", "", "", "", "", "", "", "")
+# post_manager.create_post('abc123', 'title', 'stuff', '/static/assets/book.jpg', 'john_martins.jpeg', 'john_martins.jpeg', 'Test7')
 
 
 @app.route('/')
@@ -30,63 +30,34 @@ def root():
     posts = post_manager.get_all_posts()
     return render_template('index.html', site_name=APP_NAME, page_title='Main', news_feed=posts, user=current_user)
 
-# @app.route('/create')
-# def create():
-#     return render_template('post.html', site_name=APP_NAME, page_title='Create Post', post=blank_post)
-
-# @app.route('/edit')
-# def edit():
-#     id = Flask.request.values['id']
-#     entity = post_manager.retrieve_post(id)
-#     p = Post(
-#             entity['post_id'], 
-#             entity['username'], 
-#             entity['display'],
-#             entity['description'], 
-#             entity['image'], 
-#             entity['profile'], 
-#             entity['profile_url'], 
-#             entity['comments'], 
-#             entity['date']
-#         )
-#     return render_template('post.html', site_name=APP_NAME, page_title='Edit Post', post=p)
-
-
-@app.route('/update')
+@app.route('/update', methods=['POST', 'GET'])
 def update():
-    mode = Flask.request.values['mode']
-    title = Flask.request.values['title']
-    description = Flask.request.values['description']
-    image = Flask.request.values['file']
-
-    # ---------- File uplaod code --- need to create GCS bucket first --------
-    # file = Flask.request.files.get('file')
-    # content_type = file.content_type
-    # image = post_manager.save_file(_BUCKET_NAME, file, content_type)
+    mode = request.values['mode']
+    title = request.values['title']
+    description = request.values['description']
+    image = request.values['file']
 
     if mode == 'create':
         # if you create a post, the profile image and the image next to the comment are the same
-        post_manager.create_post(current_user.name, title, description, image, current_user.photo_url, current_user.photo_url, [])
+        post_manager.create_post(current_user.username, title, description, image, current_user.photo_url, current_user.photo_url, "")
 
     # mode == "edit"
     else:
-        id = Flask.request.values['id']
+        id = request.values['id']
         entity = post_manager.retrieve_post(id)
         entity['display'] = title
         entity['description'] = description
         entity['image'] = image
-        entity['date'] = datetime.datetime.now().strftime(
-            '%Y%m%d %H:%M:%S')
+        entity['date'] = datetime.datetime.now().strftime('%Y%m%d %H:%M:%S')
         post_manager.update_post(entity)
 
     return root()
 
 @app.route('/delete')
 def delete():
-    id = Flask.request.values['id']
-    entity = post_manager.delete_post(id)
-
-
+    id = request.values['id']
+    post_manager.delete_post(id)
+    return root()
 
 
 @app.route('/user')
@@ -115,7 +86,7 @@ def createpost():
 @app.route('/editpost')
 @app.route('/editpost.html')
 def editpost():
-    id = Flask.request.values['id']
+    id = request.values['id']
     entity = post_manager.retrieve_post(id)
     p = Post(
             entity['post_id'], 

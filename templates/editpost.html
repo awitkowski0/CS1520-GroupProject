@@ -13,7 +13,7 @@
     <section class="editpost_form">
         <form method="post" action="/update">
             <input type="hidden" name="mode" value="edit">
-            <input type="hidden" name="id" value="{{ post.post_id }}">
+            <input type="hidden" name="id" value="{{post.post_id}}">
             <section>
                 <h3>Paste a URL of a picture of your item: </h3>
                 <input type="url" name="file" value="{{post.image}}" required>
@@ -42,7 +42,7 @@
             </section>
             <section>
                 <h3>Add anything else you'd like a buyer to know.</h3>
-                <textarea name="description" value="{{post.description}}" rows='6' cols='40'></textarea>
+                <textarea name="description" rows='6' cols='40'>{{post.description}}</textarea>
             </section>
             <br>
             <input type="submit" value="Post">

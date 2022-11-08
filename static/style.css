@@ -166,6 +166,11 @@ body {
     background-color: transparent;
 }
 
+/* Create Post */
+.createpost {
+    background-color: #f6f2ea;
+}
+
 /* Edit Icon */ 
 .edit img {
     width: 75%;
@@ -178,4 +183,13 @@ body {
 /* Edit Post */
 .editpost {
     background-color: #f6f2ea;
+}
+
+/* Delete Icon */ 
+.content-1.delete {
+    padding: 20px;
+}
+
+.delete img {
+    width: 75%;
 }
