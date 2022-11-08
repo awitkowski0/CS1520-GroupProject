@@ -27,3 +27,4 @@ function MyPostsDefault() {
 window.onload = (event) => {
     MyPostsDefault();
 }
+
