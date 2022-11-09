@@ -3,7 +3,10 @@
 <!-- News feed content will be on the main page -->
 {% block content %}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> da2b0789d6e504b46d23fca1c498174636add036
 <div class="signup">
     <section>
         <h2>Sign Up</h2>
@@ -12,7 +15,7 @@
 
 
 <section class="signup_form">
-    <form onsubmit ="return matchPassword()">
+    <form onsubmit="matchPassword()">
         <section>
             <h3>First Name</h3>
             <input type="text" placeholder="John"required>
@@ -36,7 +39,11 @@
 
         <section>
             <h3>Pitt Email</h3>
+<<<<<<< HEAD
             <input type="email" name="email" id="email" pattern="[a-z.]*[@]\bpitt.edu" placeholder="abc123@pitt.edu" error="abcd" title="Please provide only your Pitt e-mail address"required>
+=======
+            <input id="email" type="email" pattern="[a-zA-Z0-9.]*[@]\bpitt.edu" error="abcd" placeholder="abc123@pitt.edu" title="Please provide only your Pitt e-mail address"required>
+>>>>>>> da2b0789d6e504b46d23fca1c498174636add036
         </section>
 
         <section>
@@ -52,7 +59,11 @@
 
         <section>
             <h3>Repeat Your Password</h3>
+<<<<<<< HEAD
             <input type="password" name="password2" id="pswd2" placeholder="Repeat Password" required>
+=======
+            <input type="password" placeholder="Repeat Password" id="pswd2" required><br>
+>>>>>>> da2b0789d6e504b46d23fca1c498174636add036
             <span id = "message2" style="color:red"> </span>
         </section>
 
@@ -62,11 +73,13 @@
 
     </form>
 </section>
-    
-</div>
 
 <div class="container_login">
     <p>Already have an account? <a href="login.html">Log in</a>.</p>
 </div>
+    
+</div>
+
+
 {% endblock %}
 
