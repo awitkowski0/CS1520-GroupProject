@@ -30,39 +30,44 @@
     <form onsubmit ="return matchPassword()">
         <section>
             <h3>First Name</h3>
-            <input type="text" required>
+            <input type="text" placeholder="John"required>
         </section>
 
         <section>
             <h3>Last Name</h3>
-            <input type="text" required>
+            <input type="text" placeholder="Smith" required>
         </section>
 
         <!-- Allow a drop down to select from a list of majors at Pitt in the future? -->
         <section>
         <h3>Major</h3>
-        <input type="text" required>
+        <input type="text" placeholder="Computer Science" required>
+        </section>
+
+        <section>
+            <h3>Pitt Username</h3>
+            <input type="text" name="username" placeholder="abc123" maxlength="6" title="Please provide your Pitt username" required>
         </section>
 
         <section>
             <h3>Pitt Email</h3>
-            <input id="email" type="email" pattern="[a-z.]*[@]\bpitt.edu" error="abcd" placeholder="abc123@pitt.edu" title="Please provide only your Pitt e-mail address"required>
+            <input type="email" name="email" id="email" pattern="[a-z.]*[@]\bpitt.edu" placeholder="abc123@pitt.edu" error="abcd" title="Please provide only your Pitt e-mail address"required>
         </section>
 
         <section>
             <h3>Phone Number</h3>
-            <input type="number" required>
+            <input type="number" name="phone_number" placeholder="123-456-7890" required>
         </section>
 
 
         <section>
             <h3>Password</h3>
-            <input type="password" placeholder="Password" id="pswd1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <input type="password" name="password1" id="pswd1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
         </section>
 
         <section>
             <h3>Repeat Your Password</h3>
-            <input type="password" placeholder="Repeat Password" id="pswd2" required>
+            <input type="password" name="password2" id="pswd2" placeholder="Repeat Password" required>
             <span id = "message2" style="color:red"> </span>
         </section>
 

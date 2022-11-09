@@ -11,16 +11,17 @@
     <section class="login_form">
         <form>
             <section>
-                <h3>Pitt Email</h3>
-                <input id="email" type="email" pattern="[a-z.]*[@]\bpitt.edu" error="abcd" placeholder="abc123@pitt.edu" title="Please provide only your Pitt e-mail address"required>
+                <h3>Pitt Username</h3>
+                <input type="text" name="username" placeholder="abc123" maxlength="6" title="Please provide your Pitt username" required>
             </section>
 
-            <!-- Perhaps can try to implement a password validation form for next milestones, and asks user to repeat password again -->
             <section>
                 <h3>Password</h3>
-                <input type="password" required>
+                <input type="password" name="password1" id="pswd1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
             </section>
+
             <br>
+
             <input type="submit" value="Log In">
         </form>
     </section>
