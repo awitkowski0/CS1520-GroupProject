@@ -28,3 +28,17 @@ window.onload = (event) => {
     MyPostsDefault();
 }
 
+// repeat password validation in sign-up form
+function matchPassword() {  
+    var pw1 = document.getElementById("pswd1").value;  
+    var pw2 = document.getElementById("pswd2").value;  
+    if(pw1 != pw2) {  
+        document.getElementById("message2").innerHTML = "**Passwords do not match! Please re-enter your password again.";  
+        return false;  
+    } 
+    else {  
+        alert ("Your password created successfully");  
+        document.write("Your account has been created successfully");  
+    }
+}  
+
