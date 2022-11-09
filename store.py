@@ -1,6 +1,5 @@
 import datetime
 import random
-import logging 
 from google.cloud import datastore
 
 def get_client():
@@ -33,16 +32,16 @@ class Post:
 
 
 class User:
-    def __init__(self, username, name, email, photo_url, date=None):
+    def __init__(self, username, name, photo_url, date=None):
         self.username = username
         self.name = name
-        self.email = email
         self.photo_url = photo_url
 
         if date:
             self.date = date
         else:
             self.date = datetime.datetime.now().strftime('%Y%m%d %H:%M:%S')
+
 
 class Comment:
     def __init__(self, comment_id, post_id, username, comment, photo_url, date=None):
@@ -58,60 +57,12 @@ class Comment:
             self.date = datetime.datetime.now().strftime('%Y%m%d %H:%M:%S')
 
 
-_USER_ENTITY = 'User'
-
-def _load_key(client, entity_type, entity_id=None, parent_key=None):
-    # Load a datastore key using a particular client, and if known, the ID.
-    # Note that the ID should be an int - we're allowing datastore to generate
-    # them in this example.
-    key = None
-    if entity_id:
-        key = client.key(entity_type, entity_id, parent=parent_key)
-    else:
-        # this will generate an ID
-        key = client.key(entity_type)
-    return key
-
-
-# def _load_entity(client, entity_type, entity_id, parent_key=None):
-#     # Load a datstore entity using a particular client, and the ID.
-
-#     key = _load_key(client, entity_type, entity_id, parent_key)
-#     entity = client.get(key)
-#     logging.info('retrieved entity for %s' % (entity_id))
-#     return entity
-
-
-
 class UserManager:
     def __init__(self):
         self.client = get_client()
 
-    # def create_user(self, username, name, photo_url):
-    #     key = self.client.key("user")
-
-    def load_user(self, username, passwordhash):
-        # Load a user based on the passwordhash; if the passwordhash doesn't match
-        # the username, then this should return None.
-
-        client = get_client()
-        q = client.query(kind=_USER_ENTITY)
-        q.add_filter('username', '=', username)
-        q.add_filter('passwordhash', '=', passwordhash)
-        for user in q.fetch():
-            return User(user['username'], user['email'])
-        return None
-
-    def save_user(self, user, passwordhash):
-        """Save the user details to the datastore."""
-
-        client = get_client()
-        entity = datastore.Entity(_load_key(client, _USER_ENTITY, user.username))
-        entity['username'] = user.username
-        entity['email'] = user.email
-        entity['passwordhash'] = passwordhash
-        client.put(entity)
-
+    def create_user(self, username, name, photo_url):
+        key = self.client.key("user")
 
 
 class PostManager:
@@ -147,6 +98,7 @@ class PostManager:
     def delete_post(self, id):
         key = self.client.key('post', int(id))
         self.client.delete(key)
+
 
     def get_all_posts(self) -> list:
         posts = []
