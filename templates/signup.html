@@ -11,7 +11,7 @@
 
 
 <section class="signup_form">
-    <form onsubmit ="return matchPassword()">
+    <form onsubmit="matchPassword()">
         <section>
             <h3>First Name</h3>
             <input type="text" required>
@@ -30,7 +30,7 @@
 
         <section>
             <h3>Pitt Email</h3>
-            <input id="email" type="email" pattern="[a-z.]*[@]\bpitt.edu" error="abcd" placeholder="abc123@pitt.edu" title="Please provide only your Pitt e-mail address"required>
+            <input id="email" type="email" pattern="[a-zA-Z0-9.]*[@]\bpitt.edu" error="abcd" placeholder="abc123@pitt.edu" title="Please provide only your Pitt e-mail address"required>
         </section>
 
         <section>
@@ -46,7 +46,7 @@
 
         <section>
             <h3>Repeat Your Password</h3>
-            <input type="password" placeholder="Repeat Password" id="pswd2" required>
+            <input type="password" placeholder="Repeat Password" id="pswd2" required><br>
             <span id = "message2" style="color:red"> </span>
         </section>
 
