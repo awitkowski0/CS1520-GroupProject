@@ -34,7 +34,6 @@ function matchPassword() {
     var pw2 = document.getElementById("pswd2").value;  
     if(pw1 != pw2) {  
         document.getElementById("message2").innerHTML = "**Passwords do not match! Please re-enter your password again.";  
-        return false;  
     } 
     else {  
         alert ("Your password created successfully");  
