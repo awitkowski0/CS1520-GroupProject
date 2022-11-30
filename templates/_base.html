@@ -8,6 +8,32 @@
     <link href="/static/style.css" rel="stylesheet" type="text/css" />
     <link href="/static/user.css" rel="stylesheet" type="text/css" />
     <script src="/static/script.js" type="text/javascript"></script>
+
+<script src="https://accounts.google.com/gsi/client">
+</script>
+
+<script>
+    function handleGoogleLogin(response) {
+        const responsePayload = decodeJwt(response.credential);
+        console.log("ID: " + responsePayload.sub);
+        console.log('Full Name: ' + responsePayload.name);
+        console.log('Given Name: ' + responsePayload.given_name);
+        console.log('Family Name: ' + responsePayload.family_name);
+        console.log("Image URL: " + responsePayload.picture);
+        console.log("Email: " + responsePayload.email);
+    }
+
+    function decodeJwt(token) {
+        try {
+            let pieces = token.split('.');
+            let payload = pieces[1];
+            let s = atob(payload);
+            return JSON.parse(s);
+        } catch (e) {
+            return null;
+        }
+    }
+</script>
 </head>
 
 <body>
