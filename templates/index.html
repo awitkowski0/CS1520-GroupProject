@@ -5,11 +5,6 @@
 <div class="newsfeed">
     <div class="content-2"></div>
     <div class="content-6">
-        <div class="searchbar">
-            <form>
-                <input type="text" id="comment" placeholder="What are you looking for?">
-            </form>
-        </div>
     </div>
     <div class="content-2">
         <button class="split" onclick="location.href='/createpost'">New Post</button>
@@ -70,9 +65,15 @@
                     </div>
                 </div>
                 <div class="content-7">
+                    {%for comment in post.comments%}
+                        <div class="comment">
+                            <p>{{comment.username}}</p>
+                        </div>
+                    {% endfor %}
                     <div class="comment">
                         <form>
                             <input type="text" id="comment" placeholder="Add a comment...">
+                            <input type="submit" value="Submit">
                         </form>
                     </div>
                 </div>

@@ -13,8 +13,16 @@
 </script>
 
 <script>
+    var userData;
+
+    function getUser() {
+        return userData;
+    }
+    
     function handleGoogleLogin(response) {
         const responsePayload = decodeJwt(response.credential);
+        userData = responsePayload;
+
         console.log("ID: " + responsePayload.sub);
         console.log('Full Name: ' + responsePayload.name);
         console.log('Given Name: ' + responsePayload.given_name);
