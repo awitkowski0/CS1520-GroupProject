@@ -1,12 +1,12 @@
 import datetime
-import random
 from google.cloud import datastore
+import secrets
 
 def get_client():
     return datastore.Client(project='rocsmarketplace')
 
 def generate_id():
-    return random.randint(1,1000000000)
+    return secrets.SystemRandom().randint(1,1000000000)
 
 
 # Post obj, may need to move out of app.py
